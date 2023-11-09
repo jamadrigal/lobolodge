@@ -1542,8 +1542,7 @@ const CalenderComponent: React.FC = () => {
             count: "4",
           },
           headers: {
-            "X-RapidAPI-Key":
-              "73d5bb540emshe17eb959df9ad9dp144a7ajsn2c7082145e8c",
+            "X-RapidAPI-Key": process.env.REACT_APP_RAPID_KEY,
             "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
           },
         };
