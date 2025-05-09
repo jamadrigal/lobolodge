@@ -27,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{ts,tsx} --ext .ts,.tsx",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --ext .ts,.tsx --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +54,7 @@
     "@types/react-helmet": "^6.1.9",
     "@types/react-slick": "^0.23.13",
     "prettier": "^3.0.3",
+    "sharp": "^0.34.1",
     "tailwindcss": "^3.4.17"
   }
 }

@@ -10,6 +10,7 @@ interface CalendarProps {
 const Calendar: React.FC<CalendarProps> = ({ results }) => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [headerImage, setHeaderImage] = useState<string>("");
+  const [imageLoaded, setImageLoaded] = useState(false);
   const calendarMonth = results.name;
   const days = results.days;
   const currentDate = new Date();
@@ -22,7 +23,8 @@ const Calendar: React.FC<CalendarProps> = ({ results }) => {
   useEffect(() => {
     // Get a random image from the photos array
     const randomIndex = Math.floor(Math.random() * photos.length);
-    setHeaderImage(photos[randomIndex].url);
+    const selectedPhoto = photos[randomIndex];
+    setHeaderImage(selectedPhoto.url);
   }, []);
 
   const handleDateClick = (date: string) => {
@@ -34,14 +36,18 @@ const Calendar: React.FC<CalendarProps> = ({ results }) => {
   return (
     <div className="h-full bg-white rounded-xl shadow-lg flex flex-col">
       {/* Calendar Header */}
-      <div
-        className="relative h-32 rounded-t-xl overflow-hidden"
-        style={{
-          backgroundImage: `url(${headerImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="relative h-32 rounded-t-xl overflow-hidden">
+        <img
+          src={headerImage}
+          alt="Calendar Header"
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          loading="lazy"
+          onLoad={() => setImageLoaded(true)}
+          width={1920}
+          height={1080}
+        />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <h2 className="text-2xl font-bold text-white">{calendarMonth}</h2>
         </div>
@@ -111,10 +117,10 @@ const Calendar: React.FC<CalendarProps> = ({ results }) => {
             <div className="w-3 h-3 bg-gray-100 rounded-full mr-2"></div>
             <span>Unavailable</span>
           </div>
-          {/* <div className="flex items-center">
+          <div className="flex items-center">
             <div className="w-3 h-3 border-2 border-red-500 rounded-full mr-2"></div>
             <span>Today</span>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
