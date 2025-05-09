@@ -1,25 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { photos } from "../../data/images";
+import { CalendarMonth } from "../../types/calendar";
 
-interface DateRange {
-  available: boolean;
-  date: string;
-  min_nights: number;
-  max_nights: number;
-}
-
-interface CalendarData {
-  results: {
-    abbr_name: string;
-    name: string;
-    day_names: string[];
-    month: string;
-    days: DateRange[];
-  };
+interface CalendarProps {
+  results: CalendarMonth;
   index: number;
 }
 
-const Calendar: React.FC<CalendarData> = ({ results }) => {
+const Calendar: React.FC<CalendarProps> = ({ results }) => {
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [headerImage, setHeaderImage] = useState<string>("");
   const calendarMonth = results.name;
@@ -100,6 +88,8 @@ const Calendar: React.FC<CalendarData> = ({ results }) => {
                 {/* Tooltip */}
                 {dateRange.available && (
                   <div className="absolute z-10 invisible group-hover:visible bg-gray-900 text-white text-xs rounded py-1 px-2 -top-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                    {dateRange.price.native_price_formatted}
+                    <br />
                     Min stay: {dateRange.min_nights} nights
                     <div className="absolute w-2 h-2 bg-gray-900 transform rotate-45 -bottom-1 left-1/2 -translate-x-1/2"></div>
                   </div>
@@ -121,12 +111,10 @@ const Calendar: React.FC<CalendarData> = ({ results }) => {
             <div className="w-3 h-3 bg-gray-100 rounded-full mr-2"></div>
             <span>Unavailable</span>
           </div>
-          {/* {index === 0 && (
-            <div className="flex items-center">
-              <div className="w-3 h-3 border-2 border-red-500 rounded-full mr-2"></div>
-              <span>Today</span>
-            </div>
-          )} */}
+          {/* <div className="flex items-center">
+            <div className="w-3 h-3 border-2 border-red-500 rounded-full mr-2"></div>
+            <span>Today</span>
+          </div> */}
         </div>
       </div>
     </div>

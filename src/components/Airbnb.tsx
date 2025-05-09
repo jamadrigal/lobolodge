@@ -8,7 +8,6 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import Divider from "./Divider";
-const AirbnbStyle = { width: 450, height: 300, margin: "auto" };
 
 const Airbnb: React.FC = () => {
   useEffect(() => {
@@ -72,12 +71,17 @@ const Airbnb: React.FC = () => {
           </div>
 
           {/* Airbnb Embed */}
-          <div className="bg-gray-800 rounded-xl p-8 shadow-2xl w-full lg:w-1/2">
+          <div className="bg-gray-800 rounded-xl p-4 sm:p-8 shadow-2xl w-full lg:w-1/2">
             <div
               className="airbnb-embed-frame"
               data-id="625517496214915194"
               data-view="home"
-              style={AirbnbStyle}
+              style={{
+                width: "100%",
+                height: "300px",
+                maxWidth: "450px",
+                margin: "0 auto",
+              }}
             >
               <a
                 href="https://www.airbnb.com/h/lobolodge"

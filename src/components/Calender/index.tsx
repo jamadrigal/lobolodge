@@ -2,46 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Calendar from "./Calender";
 import Divider from "../Divider";
-
-interface Price {
-  date: string;
-  is_price_upon_request: null;
-  local_adjusted_price: null;
-  local_currency: null;
-  local_price: null;
-  native_adjusted_price: number;
-  native_currency: string;
-  native_price: number;
-  type: string;
-  local_price_formatted: string;
-}
-
-interface CalendarData {
-  available: boolean;
-  date: string;
-  available_for_checkin: boolean;
-  min_nights: number;
-  max_nights: number;
-  price: Price;
-}
-
-interface CalendarMonth {
-  abbr_name: string;
-  name: string;
-  day_names: string[];
-  month: string;
-  dynamic_pricing_updated_at: string;
-  listing_id: number;
-  year: number;
-  days: CalendarData[];
-}
+import { CalendarMonth } from "../../types/calendar";
 
 const CalenderComponent: React.FC = () => {
   const [data, setData] = useState<CalendarMonth[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+        setError(null);
+
         // Check if we have cached data
         const cachedData = localStorage.getItem("calendarData");
         const cachedTimestamp = localStorage.getItem("calendarDataTimestamp");
@@ -54,18 +27,19 @@ const CalenderComponent: React.FC = () => {
 
           if (cacheAge < ONE_DAY) {
             setData(JSON.parse(cachedData));
+            setLoading(false);
             return;
           }
         }
 
         const year = new Date().getFullYear();
         const options = {
-          method: "get",
+          method: "GET",
           url: "https://airbnb13.p.rapidapi.com/calendar",
           params: {
             room_id: "625517496214915194",
             currency: "USD",
-            year,
+            year: year.toString(),
             count: "4",
           },
           headers: {
@@ -87,11 +61,15 @@ const CalenderComponent: React.FC = () => {
         setData(newData);
       } catch (error) {
         console.error("Error fetching calendar data:", error);
+        setError("Unable to load calendar data. Please try again later.");
+
         // If there's an error and we have cached data, use it regardless of age
         const cachedData = localStorage.getItem("calendarData");
         if (cachedData) {
           setData(JSON.parse(cachedData));
         }
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -104,6 +82,21 @@ const CalenderComponent: React.FC = () => {
         <h2 className="text-4xl font-bold text-white text-center mb-12">
           Availability Calendar
         </h2>
+
+        {loading && (
+          <div className="text-center text-gray-300 mb-8">
+            Loading calendar data...
+          </div>
+        )}
+
+        {error && <div className="text-center text-red-400 mb-8">{error}</div>}
+
+        {!loading && !error && data.length === 0 && (
+          <div className="text-center text-gray-300 mb-8">
+            No calendar data available
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {data.map((r, index) => (
             <Calendar key={`${r.month}`} results={r} index={index} />
