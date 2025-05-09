@@ -1,0 +1,139 @@
+interface Photo {
+  id: string;
+  url: string;
+  alt: string;
+}
+
+export const photos: Photo[] = [
+  {
+    id: "photo1",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/978196e3-f2b7-4a64-b000-89d935c2cafe.jpeg`,
+    alt: "Cabin Exterior",
+  },
+  {
+    id: "photo2",
+    url: `https://a0.muscache.com/im/pictures/77243574-10e5-4908-afda-ee9134970d30.jpg`,
+    alt: "SnowDay",
+  },
+  {
+    id: "photo3",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/b8c4d47c-b124-495b-b066-bb8a764924bd.jpeg`,
+    alt: "Front Patio",
+  },
+
+  {
+    id: "photo4",
+    url: `https://a0.muscache.com/im/pictures/388148f1-c0a9-423b-bead-9bef7bf6d886.jpg?aki_policy=x_large`,
+    alt: "Living Area",
+  },
+  {
+    id: "photo5",
+    url: `https://a0.muscache.com/im/pictures/16b6a347-fcea-4320-b947-25f84a9cf7c8.jpg?aki_policy=x_large`,
+    alt: "Fire Seating Area",
+  },
+  {
+    id: "photo6",
+    url: `https://a0.muscache.com/im/pictures/84f46f18-e77e-4c40-ab43-9076984c83c9.jpg`,
+    alt: "Kitchen",
+  },
+  {
+    id: "photo7",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/ce85211b-6ed5-4ed4-8a44-f69a46b21b44.jpeg`,
+    alt: "Loft View",
+  },
+  {
+    id: "photo8",
+    url: `https://a0.muscache.com/im/pictures/2e26eb65-a082-428e-9775-64c762b3640d.jpg?aki_policy=x_large`,
+    alt: "Loft View 2",
+  },
+  {
+    id: "photo9",
+    url: `https://a0.muscache.com/im/pictures/miso/Hosting-625517496214915194/original/3f254f54-ef2e-4fb8-924c-a7de00f42dc5.jpeg`,
+    alt: "Fire place",
+  },
+  {
+    id: "photo10",
+    url: `https://a0.muscache.com/im/pictures/97988db0-c563-4997-9303-105ffcb2ba5e.jpg?aki_policy=x_large`,
+    alt: "Primary bathroom",
+  },
+  {
+    id: "photo11",
+    url: `https://a0.muscache.com/im/pictures/8fd2e5dc-fbee-407c-8fd9-705fabfc8b84.jpg?aki_policy=x_large`,
+    alt: "Second bathroom",
+  },
+  {
+    id: "photo12",
+    url: `https://a0.muscache.com/im/pictures/5e7764cd-042d-4bef-9c89-3be4dfe33699.jpg?aki_policy=x_large`,
+    alt: "Dinning Area",
+  },
+  {
+    id: "photo25",
+    url: `https://a0.muscache.com/im/pictures/b9982587-1dc8-4f8b-bde5-053c0df8e670.jpg?aki_policy=x_large`,
+    alt: "Primary Bedroom",
+  },
+  {
+    id: "photo13",
+    url: `https://a0.muscache.com/im/pictures/1c2138ad-4fe7-4634-8393-d4e894698a13.jpg?aki_policy=x_large`,
+    alt: "Second Bedroom",
+  },
+  {
+    id: "photo14",
+    url: `https://a0.muscache.com/im/pictures/1b78365c-e49d-475f-b22f-7c0dd0d63adf.jpg?aki_policy=x_large`,
+    alt: "Loft Bedroom",
+  },
+  {
+    id: "photo15",
+    url: `https://a0.muscache.com/im/pictures/196911c3-053e-40fe-8118-852e7b5217c3.jpg?aki_policy=x_large`,
+    alt: "Living Room 2",
+  },
+  {
+    id: "photo16",
+    url: `https://a0.muscache.com/im/pictures/a1eb9caf-960d-4a69-b5e2-07677e92ac16.jpg?aki_policy=x_large`,
+    alt: "Outdoor Front",
+  },
+  {
+    id: "photo17",
+    url: `https://a0.muscache.com/im/pictures/125aec87-9286-4ece-bf34-75196c89d586.jpg?aki_policy=x_large`,
+    alt: "Outdoor Front 2",
+  },
+  {
+    id: "photo18",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/91a0606e-e96b-493b-a099-40561b884c74.jpeg`,
+    alt: "Back Patio",
+  },
+  {
+    id: "photo26",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/edaea474-c5af-4588-80ad-1e19e91f59f0.jpeg?aki_policy=x_large`,
+    alt: "Front Patio 2",
+  },
+  {
+    id: "photo19",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/088345d0-ca57-4263-8352-5305f9491756.jpeg`,
+    alt: "Parking Area",
+  },
+  {
+    id: "photo20",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/ba11149f-0758-46ea-b142-80a5c5c511cc.jpeg`,
+    alt: "Wood Piles",
+  },
+  {
+    id: "photo21",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/1b57b3b0-e1c2-4555-9ac1-3ac58096c31b.jpeg`,
+    alt: "Cabin Front",
+  },
+  {
+    id: "photo22",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/97828074-897a-41ee-b7e6-91b87d8bca50.jpeg`,
+    alt: "Cabin Front 2",
+  },
+  {
+    id: "photo23",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/bac7dbf8-0777-4146-ba43-ea83621e2aa9.jpeg`,
+    alt: "Cabin at night",
+  },
+  {
+    id: "photo24",
+    url: `https://a0.muscache.com/im/pictures/hosting/Hosting-625517496214915194/original/8be71da1-270d-4724-8e00-93297a4c07bf.jpeg`,
+    alt: "Cabin at night 2",
+  },
+];
