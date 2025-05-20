@@ -5,6 +5,7 @@ import {
   FaCamera,
   FaShoppingBag,
   FaMountain,
+  FaRoute,
 } from "react-icons/fa";
 import Divider from "./Divider";
 
@@ -56,6 +57,14 @@ const locations: LocationCard[] = [
     link: "https://thedetoureffect.com/blog/roadside-attractions-northern-arizona/",
     icon: FaShoppingBag({ className: "text-3xl" }),
     color: "text-purple-400",
+  },
+  {
+    title: "Page",
+    description:
+      "Explore a gateway to the breathtaking beauty of the Southwest.",
+    link: "https://www.visitpageaz.com/",
+    icon: FaRoute({ className: "text-3xl" }),
+    color: "text-yellow-400",
   },
 ];
 

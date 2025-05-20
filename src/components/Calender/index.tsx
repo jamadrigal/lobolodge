@@ -40,7 +40,7 @@ const CalenderComponent: React.FC = () => {
             room_id: "625517496214915194",
             currency: "USD",
             year: year.toString(),
-            count: "4",
+            count: "8",
           },
           headers: {
             "X-RapidAPI-Key": process.env.REACT_APP_RAPID_KEY,
@@ -97,11 +97,7 @@ const CalenderComponent: React.FC = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {data.map((r, index) => (
-            <Calendar key={`${r.month}`} results={r} index={index} />
-          ))}
-        </div>
+        <Calendar results={data} />
       </div>
       <Divider />
     </section>
