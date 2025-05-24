@@ -74,10 +74,7 @@ const locations: Location[] = [
           name: "Pizzicletta - Great pizza and beer",
           link: "https://www.pizzicletta.com/",
         },
-        {
-          name: "The Hoppy Monk - Great beer and food",
-          link: "https://www.thehoppymonk.com/",
-        },
+
         {
           name: "The Toasted Owl Cafe - Great breakfast and lunch",
           link: "https://www.tripadvisor.com/Restaurant_Review-g60971-d4909110-Reviews-The_Toasted_Owl_Cafe-Flagstaff_Arizona.html",
