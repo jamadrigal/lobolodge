@@ -8,6 +8,7 @@ import {
   FaRoute,
 } from "react-icons/fa";
 import Divider from "./Divider";
+import ThingsWeDo from "./ThingsWeDo/ThingsWeDo";
 
 interface LocationCard {
   title: string;
@@ -127,6 +128,8 @@ const ThingsToDo: React.FC = () => {
           </p>
         </div>
       </div>
+      <Divider />
+      <ThingsWeDo />
       <Divider />
     </section>
   );
